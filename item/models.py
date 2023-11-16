@@ -15,7 +15,7 @@ class Catgory(models.Model):
 class Item(models.Model):
 
     def __str__(self) -> str:
-        return (self.name," -- ",self.category," -- $",self.price)
+        return (self.name)
 
     category=models.ForeignKey(Catgory,related_name='items',on_delete=models.CASCADE)
     name=models.CharField(max_length=200)

@@ -1,8 +1,16 @@
 from django.shortcuts import render
 
+from item.models import Catgory,Item
+
 # Create your views here.
 def index(request):
-    return render(request,'core/index.html')
+    allitems=Item.objects.filter(is_sold=False)
+    cats=Catgory.objects.all()
+
+    return render(request,'core/index.html',{
+        'items':allitems,
+        'cats':cats
+    })
 
 
 def baser(request):

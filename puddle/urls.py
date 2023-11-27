@@ -3,13 +3,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 # 
 from django.contrib import admin
-from django.urls import path
-from core.views import index
-from core.views import baser
-from core.views import contact
+from django.urls import path,include
+from core.views import index,baser,contact
+ 
+
 urlpatterns = [
-    path('',index,name='index'),
+    path('main/',include('core.urls')),
+    # this is the path from this the file in core:urls will find the next path format....
     path('bs/',baser,name='codeBase' ),
-    path('contact/',contact,name='contact' ),# need he name for mentions in {%this form%}
     path('admin/', admin.site.urls),
+
+    path('items/',include('item.urls'))
+ 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

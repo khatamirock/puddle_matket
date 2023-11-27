@@ -7,21 +7,22 @@
         <h2 class="mb-12 text-2xl text-center">Newset items</h2>
         <div class="grid grid-cols-3 gap-3">
             {% for item in items %}
-                <div>
-                 
-                        <div>
-                            <!-- <img src="{{ item.image.url }}" class="rounded-t-xl"> -->
-                            <img src="{{ item.img.url }}" class="w-[100%]">
-                            <!-- we are writing `item`  cause from `for "item" in items ` in this line -->
-                            <!-- for each item object we are getting the `img` attr  url-->
-                        </div>
+            <div>
+                    
+                <a href="{% url 'item:dtls' item.id %}"> 
+                    <div>
+                        <!-- <img src="{{ item.image.url }}" class="rounded-t-xl"> -->
+                        <img src="{{ item.img.url }}" class="w-[100%]">
+                        <!-- we are writing `item`  cause from `for "item" in items ` in this line -->
+                        <!-- for each item object we are getting the `img` attr  url-->
+                    </div>
 
-                        <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-2xl">{{ item.name }}</h2>
-                            <p class="text-gray-500">Price: {{ item.price }}</p>
-                            <h3>{{item.desc}}</h3>
-                        </div>
-                    </a>
+                    <div class="p-6 bg-white rounded-b-xl">
+                        <h2 class="text-2xl">{{ item.name }}</h2>
+                        <p class="text-gray-500">Price: {{ item.price }}</p>
+                        <h3>{{item.desc}}</h3>
+                    </div>
+                </a>
                 </div>
             {% endfor %}
         </div>
